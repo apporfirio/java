@@ -1,13 +1,13 @@
 package config;
 
-public enum TargetBrowserName {
+public enum WebDriverAlias {
 
     CHROME("CHROME"),
     FIREFOX("FIREFOX");
 
     private final String text;
 
-    TargetBrowserName(String text) {
+    WebDriverAlias(String text) {
         this.text = text;
     }
 

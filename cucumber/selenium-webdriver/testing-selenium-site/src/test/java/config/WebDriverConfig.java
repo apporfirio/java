@@ -8,17 +8,21 @@ public class WebDriverConfig {
 
     public static WebDriver getWebDriver() {
         WebDriver driver;
-        TargetBrowserName targetBrowserName = TestConfig.getTargetBrowserName();
+        WebDriverAlias webDriverAlias = TestConfig.getWebDriverAlias();
 
-        switch (targetBrowserName) {
-            case CHROME:
+        switch (webDriverAlias) {
+            case CHROME: {
+                System.setProperty("webdriver.chrome.driver", TestConfig.getChromeWebDriverAbsolutePath());
                 driver = new ChromeDriver();
                 break;
-            case FIREFOX:
+            }
+            case FIREFOX: {
+                System.setProperty("webdriver.gecko.driver", TestConfig.getFirefoxWebDriverAbsolutePath());
                 driver = new FirefoxDriver();
                 break;
+            }
             default:
-                throw new RuntimeException("WebDriver não encontrado para browser de nome igual a '" + targetBrowserName + "'");
+                throw new RuntimeException("WebDriver não encontrado para browser de nome igual a '" + webDriverAlias + "'");
         }
 
         if (TestConfig.checkWebDriverOnFullScreenMode()) {

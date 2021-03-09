@@ -11,16 +11,36 @@ public class TestConfig {
 
     private static Properties properties = readProperties();
 
-    public static String getTargetBaseURL() {
-        return readProperty("target-base-url");
+    public static String getSeleniumWebsiteURL() {
+        return readProperty("selenium-website-url");
     }
 
-    public static TargetBrowserName getTargetBrowserName() {
-        return TargetBrowserName.valueOf(readProperty("target-browser-name").toUpperCase());
+    public static WebDriverAlias getWebDriverAlias() {
+        return WebDriverAlias.valueOf(readProperty("webdriver-alias").toUpperCase());
     }
 
     public static boolean checkWebDriverOnFullScreenMode() {
         return Boolean.parseBoolean(readProperty("webdriver-on-full-screen-mode"));
+    }
+
+    public static int getWebDriverTimeout() {
+        return Integer.valueOf(readProperty("webdriver-get-url-timeout"));
+    }
+
+    public static String getChromeWebDriverAbsolutePath() {
+        return readProperty("absolute-path-to-chrome-webdriver");
+    }
+
+    public static String getFirefoxWebDriverAbsolutePath() {
+        return readProperty("absolute-path-to-firefox-webdriver");
+    }
+
+    public static String getSeleniumPreviousReleasesURL() {
+        return readProperty("selenium-previous-releases-url");
+    }
+
+    public static String getSeleniumOfficialUserGroupURL() {
+        return readProperty("selenium-official-user-group-url");
     }
 
     private static String readProperty(String propertyName) {
