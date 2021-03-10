@@ -11,11 +11,15 @@ Selenium WebDriver, Cucumber, JUnit, Maven.
 Criar arquivo "test-config.properties", dentro de /src/test/resources,
 com as seguintes propriedades:
 
-- target-base-url=https://www.selenium.dev
+selenium-website-url=https://www.selenium.dev
 
-- target-browser-name=chrome
+webdriver-alias=chrome
+webdriver-on-full-screen-mode=true
+webdriver-get-url-timeout=30
 
-- webdriver-on-full-screen-mode=true
+absolute-path-to-chrome-webdriver=A_FORNECER
+absolute-path-to-firefox-webdriver=A_FORNECER
 
-
-
+selenium-previous-releases-url=https://selenium-release.storage.googleapis.com/index.html
+selenium-official-user-group-url=http://groups.google.com/group/selenium-users
+selenium-meetups-url=https://www.meetup.com/topics/selenium/
