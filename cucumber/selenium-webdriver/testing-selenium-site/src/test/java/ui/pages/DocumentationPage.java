@@ -1,4 +1,4 @@
-package components;
+package ui.pages;
 
 import config.TestConfig;
 import org.openqa.selenium.By;
@@ -6,34 +6,38 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.URLChecker;
 
 public class DocumentationPage extends MenuPage {
 
     @FindBy(css = "#sidebar .topics")
     private WebElement topicsList;
 
-    private static final String BASE_URL = TestConfig.getSeleniumWebsiteURL();
+    private static final String INSTALLATION_URL_SUFFIX = "/selenium_installation/";
 
     public DocumentationPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public boolean checkSeleniumInstallationLink() {
+    public boolean checkInstallationLinkIsDisplayed() {
         WebElement seleniumInstallationLink = getTopicLink("Selenium installation");
 
         if (seleniumInstallationLink.isDisplayed()) {
             String seleniumInstallationLinkHREF = seleniumInstallationLink.getAttribute("href");
-            return seleniumInstallationLinkHREF.endsWith("/selenium_installation/");
+            return seleniumInstallationLinkHREF.endsWith(INSTALLATION_URL_SUFFIX);
         }
 
         return false;
     }
 
+    public boolean checkInstallationLinkIsWorking() {
+        return URLChecker.checkStatusOk(getURL() + INSTALLATION_URL_SUFFIX);
+    }
+
     private WebElement getTopicLink(String topicLinkText) {
         return topicsList.findElement(By.linkText(topicLinkText));
     }
-
 
     @Override
     public String getMenuPath() {
@@ -42,7 +46,7 @@ public class DocumentationPage extends MenuPage {
 
     @Override
     public String getURL() {
-        return BASE_URL + "/documentation/en/";
+        return TestConfig.getSeleniumWebsiteURL() + "/documentation/en/";
     }
 
     @Override

@@ -1,4 +1,4 @@
-package components;
+package ui.pages;
 
 import config.TestConfig;
 import org.openqa.selenium.WebDriver;

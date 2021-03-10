@@ -1,4 +1,4 @@
-package components;
+package ui.pages;
 
 import config.TestConfig;
 import org.openqa.selenium.By;
@@ -9,20 +9,32 @@ import java.util.List;
 
 public class ProjectsPage extends MenuPage {
 
-    private static final String BASE_URL = TestConfig.getSeleniumWebsiteURL();
-
     public ProjectsPage(WebDriver driver) {
         super(driver);
     }
 
     public boolean checkProjects(List<String> expectedProjects) {
         for (String expectedProject : expectedProjects) {
-            WebElement projectTitle = driver.findElement(By.xpath("//h2[text() = '" + expectedProject + "']"));
+            WebElement projectTitle = driver.findElement(By.id(convertProjectNameToID(expectedProject)));
 
             if (!projectTitle.isDisplayed()) return false;
         }
 
         return true;
+    }
+
+    private String convertProjectNameToID(String projectName) {
+        String[] nameParts = projectName.split(" ");
+        String projectID = "";
+
+        for (String namePart : nameParts) {
+            if (projectID.isEmpty())
+                projectID += namePart.toLowerCase();
+            else
+                projectID += "-" + namePart.toLowerCase();
+        }
+
+        return projectID;
     }
 
     @Override
@@ -32,7 +44,7 @@ public class ProjectsPage extends MenuPage {
 
     @Override
     public String getURL() {
-        return BASE_URL + "/projects/";
+        return TestConfig.getSeleniumWebsiteURL() + "/projects/";
     }
 
     @Override

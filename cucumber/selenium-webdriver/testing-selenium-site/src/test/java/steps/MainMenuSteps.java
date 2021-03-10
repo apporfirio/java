@@ -1,19 +1,14 @@
 package steps;
 
-import components.*;
-import config.TestConfig;
+import ui.components.*;
 import config.WebDriverConfig;
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import ui.pages.*;
 
 import java.util.List;
 
@@ -40,11 +35,41 @@ public class MainMenuSteps {
         homePage.open();
     }
 
+    @Given("I select {string} option under {string}")
+    public void selectSubmenuOption(String menuOptionText, String menuGroupName) {
+        MainMenu mainMenu = new MainMenu(driver);
+        mainMenu.toggleMenuGroup(menuGroupName);
+        mainMenu.selectOption(menuOptionText, menuGroupName);
+    }
 
-    @When("I select {string} on main menu")
+    @When("I select {string} option")
     public void selectMenuOption(String menuOptionText) {
         MainMenu mainMenu = new MainMenu(driver);
         mainMenu.selectOption(menuOptionText);
+    }
+
+    @Then("I can read Selenium's history")
+    public void checkAccessToAboutPage() {
+        AboutPage aboutPage = new AboutPage(driver);
+        assertEquals(aboutPage.getTitle(), driver.getTitle());
+        assertTrue(aboutPage.checkFullHistoryLinkIsDisplayed());
+        assertTrue(aboutPage.checkFullHistoryLinkIsWorking());
+    }
+
+    @Then("I can know Selenium's governance modal and philosophy")
+    public void checkAccessToProjectPage() {
+        ProjectStructurePage projectStructurePage = new ProjectStructurePage(driver);
+        assertEquals(projectStructurePage.getTitle(), driver.getTitle());
+        assertTrue(projectStructurePage.checkGovernanceLinkIsDisplayed());
+        assertTrue(projectStructurePage.checkGovernanceLinkIsWorking());
+    }
+
+    @Then("I can find about Selenium's meetups around the world")
+    public void checkAccessToEventsPage() {
+        EventsPage eventsPage = new EventsPage(driver);
+        assertEquals(eventsPage.getTitle(), driver.getTitle());
+        assertTrue(eventsPage.checkMeetupsLinkIsDisplayed());
+        assertTrue(eventsPage.checkMeetupsLinkIsWorking());
     }
 
     @Then("I have access to all previous releases of Selenium")
@@ -57,23 +82,33 @@ public class MainMenuSteps {
 
     @Then("I can read about the following projects:")
     public void checkAccessToProjectsPage(List<String> expectedProjects) {
-//        ProjectsPage projectsPage = new ProjectsPage(driver);
-//        assertEquals(projectsPage.getTitle(), driver.getTitle());
-//        assertTrue(projectsPage.checkProjects(expectedProjects));
+        ProjectsPage projectsPage = new ProjectsPage(driver);
+        assertEquals(projectsPage.getTitle(), driver.getTitle());
+        assertTrue(projectsPage.checkProjects(expectedProjects));
     }
 
     @Then("I can read how to install Selenium")
     public void checkAccessToDocumentationPage() {
-//        DocumentationPage documentationPage = new DocumentationPage(driver);
-//        assertEquals(documentationPage.getTitle(), driver.getTitle());
-//        assertTrue(documentationPage.checkSeleniumInstallationLink());
+        DocumentationPage documentationPage = new DocumentationPage(driver);
+        assertEquals(documentationPage.getTitle(), driver.getTitle());
+        assertTrue(documentationPage.checkInstallationLinkIsDisplayed());
+        assertTrue(documentationPage.checkInstallationLinkIsWorking());
     }
 
     @Then("I have access to the official user group")
     public void checkAccessToSupportPage() {
-//        SupportPage supportPage = new SupportPage(driver);
-//        assertEquals(supportPage.getTitle(), driver.getTitle());
-//        assertTrue(supportPage.checkOfficialUserGroupLink());
+        SupportPage supportPage = new SupportPage(driver);
+        assertEquals(supportPage.getTitle(), driver.getTitle());
+        assertTrue(supportPage.checkOfficialUserGroupLinkIsDisplayed());
+        assertTrue(supportPage.checkOfficialUserGroupLinkIsWorking());
+    }
+
+    @Then("I can find posts related to the following categories:")
+    public void checkAccessToBlogPage(List<String> expectedCategories) {
+        BlogPage blogPage = new BlogPage(driver);
+        assertEquals(blogPage.getTitle(), driver.getTitle());
+        assertTrue(blogPage.checkCategoriesLinksAreDisplayed(expectedCategories));
+        assertTrue(blogPage.checkCategoriesLinksAreWorking(expectedCategories));
     }
 
 }

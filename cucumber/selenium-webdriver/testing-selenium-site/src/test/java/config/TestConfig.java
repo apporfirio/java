@@ -43,6 +43,10 @@ public class TestConfig {
         return readProperty("selenium-official-user-group-url");
     }
 
+    public static String getSeleniumMeetupsURL() {
+        return readProperty("selenium-meetups-url");
+    }
+
     private static String readProperty(String propertyName) {
         if (properties == null)
             return "";
