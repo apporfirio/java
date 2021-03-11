@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class ProjectsPage extends MenuPage {
+public class ProjectsPage extends Page {
 
     public ProjectsPage(WebDriver driver) {
         super(driver);
@@ -35,11 +35,6 @@ public class ProjectsPage extends MenuPage {
         }
 
         return projectID;
-    }
-
-    @Override
-    public String getMenuPath() {
-        return "Projects";
     }
 
     @Override

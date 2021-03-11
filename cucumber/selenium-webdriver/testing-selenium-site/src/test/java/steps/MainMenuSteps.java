@@ -48,12 +48,11 @@ public class MainMenuSteps {
         mainMenu.selectOption(menuOptionText);
     }
 
-    @Then("I can read Selenium's history")
+    @Then("I can know what Selenium is")
     public void checkAccessToAboutPage() {
         AboutPage aboutPage = new AboutPage(driver);
         assertEquals(aboutPage.getTitle(), driver.getTitle());
-        assertTrue(aboutPage.checkFullHistoryLinkIsDisplayed());
-        assertTrue(aboutPage.checkFullHistoryLinkIsWorking());
+        assertTrue(aboutPage.checkDescriptionIsDisplayed());
     }
 
     @Then("I can know Selenium's governance modal and philosophy")
@@ -70,6 +69,34 @@ public class MainMenuSteps {
         assertEquals(eventsPage.getTitle(), driver.getTitle());
         assertTrue(eventsPage.checkMeetupsLinkIsDisplayed());
         assertTrue(eventsPage.checkMeetupsLinkIsWorking());
+    }
+
+    @Then("I can get information on Open Source projects built around Selenium")
+    public void checkAccessToEcosystemPage() {
+        EcosystemPage ecosystemPage = new EcosystemPage(driver);
+        assertEquals(ecosystemPage.getTitle(), driver.getTitle());
+        assertTrue(ecosystemPage.checkDescriptionIsDisplayed());
+    }
+
+    @Then("I can read Selenium's history")
+    public void checkAccessToHistoryPage() {
+        HistoryPage historyPage = new HistoryPage(driver);
+        assertEquals(historyPage.getTitle(), driver.getTitle());
+        assertTrue(historyPage.checkHistoryBeginningIsDisplayed());
+    }
+
+    @Then("I can find out how to help Selenium")
+    public void checkAccessToGetInvolvedPage() {
+        GetInvolvedPage getInvolvedPage = new GetInvolvedPage(driver);
+        assertEquals(getInvolvedPage.getTitle(), driver.getTitle());
+        assertTrue(getInvolvedPage.checkDescriptionIsDisplayed());
+    }
+
+    @Then("I can know which companies sponsors Selenium")
+    public void checkAccessToSponsorsPage() {
+        SponsorsPage sponsorsPage = new SponsorsPage(driver);
+        assertEquals(sponsorsPage.getTitle(), driver.getTitle());
+        assertTrue(sponsorsPage.checkCompaniesLogosArePresent());
     }
 
     @Then("I have access to all previous releases of Selenium")

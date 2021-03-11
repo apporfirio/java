@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.URLChecker;
 
-public class DownloadsPage extends MenuPage {
+public class DownloadsPage extends Page {
 
     @FindBy(xpath = "//*[@class = 'releases-button' and text() = 'Previous Releases']")
     private WebElement previousReleasesButton;
@@ -36,11 +36,6 @@ public class DownloadsPage extends MenuPage {
 
     public boolean checkPreviousReleasesLinkIsWorking() {
         return URLChecker.checkStatusOk(SELENIUM_PREVIOUS_RELEASES_URL);
-    }
-
-    @Override
-    public String getMenuPath() {
-        return "Downloads";
     }
 
     @Override

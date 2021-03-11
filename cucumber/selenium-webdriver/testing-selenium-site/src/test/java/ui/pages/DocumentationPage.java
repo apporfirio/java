@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.URLChecker;
 
-public class DocumentationPage extends MenuPage {
+public class DocumentationPage extends Page {
 
     @FindBy(css = "#sidebar .topics")
     private WebElement topicsList;
@@ -37,11 +37,6 @@ public class DocumentationPage extends MenuPage {
 
     private WebElement getTopicLink(String topicLinkText) {
         return topicsList.findElement(By.linkText(topicLinkText));
-    }
-
-    @Override
-    public String getMenuPath() {
-        return "Documentation";
     }
 
     @Override

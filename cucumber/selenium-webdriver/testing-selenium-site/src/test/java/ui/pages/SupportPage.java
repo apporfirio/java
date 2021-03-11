@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.URLChecker;
 
-public class SupportPage extends MenuPage {
+public class SupportPage extends Page {
 
     private static final String SELENIUM_OFFICIAL_USER_GROUP_URL = TestConfig.getSeleniumOfficialUserGroupURL();
 
@@ -21,11 +21,6 @@ public class SupportPage extends MenuPage {
 
     public boolean checkOfficialUserGroupLinkIsWorking() {
         return URLChecker.checkStatusOk(SELENIUM_OFFICIAL_USER_GROUP_URL);
-    }
-
-    @Override
-    public String getMenuPath() {
-        return "Support";
     }
 
     @Override

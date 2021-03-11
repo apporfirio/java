@@ -10,7 +10,7 @@ import utils.URLChecker;
 
 import java.util.List;
 
-public class BlogPage extends MenuPage {
+public class BlogPage extends Page {
 
     @FindBy(css = ".filter-container .blog-filter")
     private WebElement blogFilter;
@@ -45,11 +45,6 @@ public class BlogPage extends MenuPage {
     private WebElement getCategoriesLinksContainer() {
         WebElement sectionTitle = blogFilter.findElement(By.xpath(".//*[text() = 'Categories']"));
         return sectionTitle.findElement(By.xpath(".//following-sibling::*[@class = 'links-container']"));
-    }
-
-    @Override
-    public String getMenuPath() {
-        return "Blog";
     }
 
     @Override

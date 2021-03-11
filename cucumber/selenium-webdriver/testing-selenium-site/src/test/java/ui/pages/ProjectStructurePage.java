@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.URLChecker;
 
-public class ProjectStructurePage extends MenuPage {
+public class ProjectStructurePage extends Page {
 
     @FindBy(css = ".article.governance")
     private WebElement governanceArticle;
@@ -28,11 +28,6 @@ public class ProjectStructurePage extends MenuPage {
 
     public boolean checkGovernanceLinkIsWorking() {
         return URLChecker.checkStatusOk(BASE_URL + GOVERNANCE_URL_SUFFIX);
-    }
-
-    @Override
-    public String getMenuPath() {
-        return "About/Governance";
     }
 
     @Override

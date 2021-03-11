@@ -8,7 +8,7 @@ Feature: Main menu navigation
 
   Scenario: About page opens successfully
     When  I select 'About' option under 'About'
-    Then I can read Selenium's history
+    Then I can know what Selenium is
 
   Scenario: Governance page opens successfully
     When I select 'Governance' option under 'About'
@@ -17,6 +17,22 @@ Feature: Main menu navigation
   Scenario: Events page opens successfully
     When I select 'Events' option under 'About'
     Then I can find about Selenium's meetups around the world
+
+  Scenario: Ecosystem page opens successfully
+    When I select 'Ecosystem' option under 'About'
+    Then I can get information on Open Source projects built around Selenium
+
+  Scenario: History page opens successfully
+    When I select 'History' option under 'About'
+    Then I can read Selenium's history
+
+  Scenario: Get Involved page opens successfully
+    When I select 'Get Involved' option under 'About'
+    Then I can find out how to help Selenium
+
+  Scenario: Sponsors page opens successfully
+    When I select 'Sponsors' option under 'About'
+    Then I can know which companies sponsors Selenium
 
   Scenario: Downloads page opens successfully
     When I select 'Downloads' option

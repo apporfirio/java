@@ -7,30 +7,30 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AboutPage extends Page {
+public class GetInvolvedPage extends Page {
 
     @FindBy(css = ".hero .header-description")
     private WebElement descriptionContainer;
 
-    public AboutPage(WebDriver driver) {
+    public GetInvolvedPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
     public boolean checkDescriptionIsDisplayed() {
-        String descriptionPiece = "Selenium is a suite of tools for automating web browsers";
+        String descriptionPiece = "Selenium is certainly a team effort! There are several ways you can help out";
         WebElement description = descriptionContainer.findElement(By.xpath(".//*[contains(text(), '" + descriptionPiece + "')]"));
         return description.isDisplayed();
     }
 
     @Override
     public String getURL() {
-        return TestConfig.getSeleniumWebsiteURL() + "/about/";
+        return TestConfig.getSeleniumWebsiteURL() + "/getinvolved/";
     }
 
     @Override
     public String getTitle() {
-        return "About Selenium";
+        return "Get Involved";
     }
 
 }
