@@ -52,6 +52,8 @@ public class StaticArrayList<T> {
 	public void removeFirst() {
 		assertNotEmpty();
 
+		shiftLeft(0);
+		size--;
 	}
 	
 	@Override
@@ -63,6 +65,12 @@ public class StaticArrayList<T> {
 	private void shiftRight(int startIndex) {
 		for (int i = size - 1; i >= startIndex; i--) {
 			container[i + 1] = container[i];
+		}
+	}
+
+	private void shiftLeft(int startIndex) {
+		for (int i = startIndex; i < size - 1; i++) {
+			container[i] = container[i + 1];
 		}
 	}
 	

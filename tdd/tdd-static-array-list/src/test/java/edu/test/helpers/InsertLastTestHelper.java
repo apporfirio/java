@@ -4,8 +4,10 @@ import edu.test.models.InsertLastTestCase;
 
 public class InsertLastTestHelper {
 
+    private static Object[][] givenInputs;
+
     public static InsertLastTestCase[] getTestCases() {
-        Object[][] inputs = getInputs();
+        Object[][] inputs = getGivenInputs();
         InsertLastTestCase[] testCases = new InsertLastTestCase[inputs.length];
 
         for (int i = 0; i < inputs.length; i++) {
@@ -21,11 +23,15 @@ public class InsertLastTestHelper {
         return testCases;
     }
 
-    private static Object[][] getInputs() {
-        return new Object[][] {
-                new Object[] { true },
-                new Object[] { "1.99f", "-3.14159f" },
-                new Object[] { null, new Object(), new Object(), new Object[100], null }
-        };
+    private static Object[][] getGivenInputs() {
+        if (givenInputs == null) {
+            givenInputs =  new Object[][] {
+                    new Object[] { true },
+                    new Object[] { "1.99f", "-3.14159f" },
+                    new Object[] { null, new Object(), new Object(), new Object[100], null }
+            };
+        }
+
+        return givenInputs;
     }
 }

@@ -5,8 +5,10 @@ import edu.test.models.InsertFirstTestCase;
 
 public class InsertFirstTestHelper {
 
+    private static Object[][] givenInputs;
+
     public static InsertFirstTestCase[] getTestCases() {
-        Object[][] inputs = getInputs();
+        Object[][] inputs = getGivenInputs();
         InsertFirstTestCase[] testCases = new InsertFirstTestCase[inputs.length];
 
         for (int i = 0; i < inputs.length; i++) {
@@ -22,11 +24,15 @@ public class InsertFirstTestHelper {
         return testCases;
     }
 
-    private static Object[][] getInputs() {
-        return new Object[][] {
-                new Object[] { 1 },
-                new Object[] { 1.1, 2.2 },
-                new Object[] { 0, "", true, new Double[10], null },
-        };
+    private static Object[][] getGivenInputs() {
+        if (givenInputs == null) {
+            givenInputs = new Object[][] {
+                    new Object[] { 1 },
+                    new Object[] { 1.1, 2.2 },
+                    new Object[] { new String[3][4], new Object(), new Integer[1], new Double[10], null },
+            };
+        }
+
+        return givenInputs;
     }
 }

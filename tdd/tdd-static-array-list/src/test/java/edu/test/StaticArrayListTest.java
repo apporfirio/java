@@ -3,11 +3,13 @@ package edu.test;
 import static org.junit.Assert.assertEquals;
 
 import edu.test.helpers.InsertTestHelper;
+import edu.test.helpers.RemoveFirstTestHelper;
 import edu.test.models.InsertFirstTestCase;
 import edu.test.models.InsertLastTestCase;
 import edu.test.helpers.InsertFirstTestHelper;
 import edu.test.helpers.InsertLastTestHelper;
 import edu.test.models.InsertTestCase;
+import edu.test.models.RemoveFirstTestCase;
 import org.junit.Test;
 
 import edu.StaticArrayList;
@@ -197,6 +199,19 @@ public class StaticArrayListTest {
 
 	@Test
 	public void canRemoveFirstFromList() {
+		RemoveFirstTestCase[] testCases = RemoveFirstTestHelper.getTestCases();
+
+		for (RemoveFirstTestCase testCase : testCases) {
+			StaticArrayList<Object> list = testCase.getGivenList();
+
+			list.removeFirst();
+
+			assertResult(testCase.getExpectedList(), list);
+		}
+	}
+
+	@Test
+	public void canRemoveLastFromList() {
 		// TODO
 	}
 

@@ -5,18 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca73319e-95ae-4e7e-aadc-61ae4fdc9e57" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/test/helpers/InsertFirstTestHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/test/helpers/InsertLastTestHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/test/helpers/InsertTestHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/test/models/InsertFirstTestCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/test/models/InsertLastTestCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/test/models/InsertTestCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/test/utils/TestUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/test/helpers/RemoveFirstTestHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/test/models/RemoveFirstTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/StaticArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/StaticArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/test/InsertionSample.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/test/StaticArrayListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/test/StaticArrayListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/test/helpers/InsertFirstTestHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/test/helpers/InsertFirstTestHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/test/helpers/InsertLastTestHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/test/helpers/InsertLastTestHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/StaticArrayList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/StaticArrayList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/test/StaticArrayListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/test/StaticArrayListTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/test/helpers/InsertFirstTestHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/test/helpers/InsertFirstTestHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/test/helpers/InsertLastTestHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/test/helpers/InsertLastTestHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/test/models/InsertFirstTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/test/models/InsertFirstTestCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/test/models/InsertLastTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/test/models/InsertLastTestCase.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.StaticArrayListTest">
+  <component name="RunManager" selected="JUnit.StaticArrayListTest.canRemoveFirstFromList">
     <configuration name="StaticArrayListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tdd-static-array-list" />
       <extension name="coverage">
@@ -68,7 +69,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StaticArrayListTest.canCreateNilListWithSecondConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StaticArrayListTest.canInsertFirstInList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tdd-static-array-list" />
       <extension name="coverage">
         <pattern>
@@ -78,23 +79,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="edu.test" />
       <option name="MAIN_CLASS_NAME" value="edu.test.StaticArrayListTest" />
-      <option name="METHOD_NAME" value="canCreateNilListWithSecondConstructor" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StaticArrayListTest.canCreateNonZeroSizedListWithSecondConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tdd-static-array-list" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.test" />
-      <option name="MAIN_CLASS_NAME" value="edu.test.StaticArrayListTest" />
-      <option name="METHOD_NAME" value="canCreateNonZeroSizedListWithSecondConstructor" />
+      <option name="METHOD_NAME" value="canInsertFirstInList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,13 +117,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StaticArrayListTest.canRemoveFirstFromList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tdd-static-array-list" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.test" />
+      <option name="MAIN_CLASS_NAME" value="edu.test.StaticArrayListTest" />
+      <option name="METHOD_NAME" value="canRemoveFirstFromList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StaticArrayListTest" />
+        <item itemvalue="JUnit.StaticArrayListTest.canRemoveFirstFromList" />
+        <item itemvalue="JUnit.StaticArrayListTest.canInsertFirstInList" />
         <item itemvalue="JUnit.StaticArrayListTest.canInsertInList" />
+        <item itemvalue="JUnit.StaticArrayListTest" />
         <item itemvalue="JUnit.StaticArrayListTest.canPartiallyInitializeList" />
-        <item itemvalue="JUnit.StaticArrayListTest.canCreateNonZeroSizedListWithSecondConstructor" />
-        <item itemvalue="JUnit.StaticArrayListTest.canCreateNilListWithSecondConstructor" />
       </list>
     </recent_temporary>
   </component>
