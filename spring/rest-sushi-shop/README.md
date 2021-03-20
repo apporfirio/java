@@ -6,7 +6,7 @@ Pequena aplicação, back end, para venda de comida japonesa com pagamento na en
 
 # Palavras-chave
 
-Spring MVC, REST, JUnit, Maven, Tomcat.
+Spring MVC, REST, JUnit, Mockito, Maven, Tomcat.
 
 
 
