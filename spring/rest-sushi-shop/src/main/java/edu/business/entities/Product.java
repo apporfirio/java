@@ -1,4 +1,4 @@
-package edu.domain.entities;
+package edu.business.entities;
 
 import lombok.*;
 

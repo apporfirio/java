@@ -1,10 +1,10 @@
-package edu.domain.repositories.interfaces;
+package edu.business.services;
 
-import edu.domain.entities.Product;
+import edu.business.entities.Product;
 
 import java.util.List;
 
-public interface ProductRepository {
+public interface ProductService {
 
     Product findProductById(Long id);
 

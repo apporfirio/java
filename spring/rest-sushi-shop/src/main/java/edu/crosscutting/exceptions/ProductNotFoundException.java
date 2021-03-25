@@ -1,4 +1,4 @@
-package edu.domain.exceptions;
+package edu.crosscutting.exceptions;
 
 public class ProductNotFoundException extends RuntimeException {
 
