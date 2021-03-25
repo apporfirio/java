@@ -1,4 +1,4 @@
-package edu.unit.controllers;
+package edu.controllers;
 
 import edu.config.ApplicationContextConfig;
 import org.junit.Test;

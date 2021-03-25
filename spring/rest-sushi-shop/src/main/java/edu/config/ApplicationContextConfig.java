@@ -36,7 +36,7 @@ public class ApplicationContextConfig {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 
         em.setDataSource(dataSource());
-        em.setPackagesToScan("edu.domain.entities");
+        em.setPackagesToScan("edu.business.entities");
         em.setPersistenceUnitName("RestSushiShopPU");
         em.setJpaVendorAdapter(jpaVendorAdapter());
         em.setJpaProperties(getJpaVendorAdapterExtraProperties());

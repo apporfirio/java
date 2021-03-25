@@ -1,22 +1,30 @@
 package edu.controllers;
 
-import edu.domain.entities.Product;
-import edu.domain.exceptions.ProductNotFoundException;
-import edu.domain.services.interfaces.ProductService;
+import edu.business.entities.Product;
+import edu.crosscutting.exceptions.ProductNotFoundException;
+import edu.business.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/product")
-public class ProductController {
+public class ProductController extends AbstractController {
 
     @Autowired
     private ProductService productService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> findProductByID(@PathVariable Long id) {
-        Product product = productService.findProductById(id);
-        return ResponseEntity.ok(product);
+    public ResponseEntity<?> findProductByID(@PathVariable Long id) {
+        try {
+            Product product = productService.findProductById(id);
+            return ok(product);
+        }
+        catch (IllegalArgumentException e) {
+            return badRequest(e);
+        }
+        catch (ProductNotFoundException e) {
+            return notFound();
+        }
     }
 }

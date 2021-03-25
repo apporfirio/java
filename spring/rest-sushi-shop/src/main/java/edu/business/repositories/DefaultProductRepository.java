@@ -1,7 +1,8 @@
-package edu.domain.repositories.implementations;
+package edu.business.repositories;
 
-import edu.domain.entities.Product;
-import edu.domain.repositories.interfaces.ProductRepository;
+import static edu.crosscutting.utils.Assertions.assertNotNull;
+
+import edu.business.entities.Product;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,17 +21,11 @@ public class DefaultProductRepository implements ProductRepository {
     private EntityManager em;
 
     public Product findProductById(Long id) {
-        if (id == null || id < 0) {
-            throw new IllegalArgumentException("cannot findProductById given null id or negative id");
-        }
-
         return em.find(Product.class, id);
     }
 
     public List<Product> findProductsContainingTitle(String title) {
-        if (title == null || title.trim().isEmpty()) {
-            throw new IllegalArgumentException("cannot findProductByTitle given null title or blank title");
-        }
+        assertNotNull(title, "title");
 
         TypedQuery<Product> query = em.createQuery(
                 "SELECT p FROM Product p WHERE p.title LIKE :titleParam",
@@ -42,10 +37,6 @@ public class DefaultProductRepository implements ProductRepository {
     }
 
     public Product saveProduct(Product product) {
-        if (product == null) {
-            throw new IllegalArgumentException("cannot save null product");
-        }
-
         if (product.getId() == null) {
             return createProduct(product);
         }
