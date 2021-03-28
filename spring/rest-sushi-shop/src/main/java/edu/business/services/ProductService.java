@@ -10,6 +10,6 @@ public interface ProductService {
 
     List<Product> findProductsContainingTitle(String title);
 
-    Product saveProduct(Product product);
+    Long createProduct(Product product);
 
 }

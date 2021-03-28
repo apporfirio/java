@@ -38,12 +38,17 @@ public class DefaultProductService implements ProductService {
         return productRepository.findProductsContainingTitle(title.trim());
     }
 
-    public Product saveProduct(Product product) {
+    public Long createProduct(Product product) {
         if (product == null) {
             throw new IllegalArgumentException("product cannot be null");
         }
+        if (product.getId() != null) {
+            throw new IllegalArgumentException("product with id " + product.getId() + " already exists");
+        }
 
-        return productRepository.saveProduct(product);
+        productRepository.createProduct(product);
+
+        return product.getId();
     }
 
 }
