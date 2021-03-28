@@ -1,5 +1,6 @@
 package edu.business.services;
 
+import edu.business.entities.Product;
 import edu.crosscutting.exceptions.ProductNotFoundException;
 import edu.business.repositories.ProductRepository;
 
@@ -26,12 +27,12 @@ public class DefaultProductServiceUnitTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldNotFindProductByIdGivenNegativeId() {
-        productService.findProductById(-10L);
+        productService.findProductById(-10l);
     }
 
     @Test(expected = ProductNotFoundException.class)
     public void shouldNotFindProductByIdGivenNonExistingId() {
-        Long nonExistingId = 1000000000L;
+        Long nonExistingId = 1000000000l;
         when(productRepository.findProductById(nonExistingId)).thenReturn(null);
 
         productService.findProductById(nonExistingId);
@@ -53,9 +54,18 @@ public class DefaultProductServiceUnitTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldNotSaveProductGivenNullProduct() {
-        productService.saveProduct(null);
+    public void shouldNotCreateProductGivenNullProduct() {
+        productService.createProduct(null);
     }
 
-
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldNotCreateProductGivenNonNullId() {
+        Product product = new Product(
+                59l,
+                "Product title",
+                "Product description",
+                0.50f
+        );
+        productService.createProduct(product);
+    }
 }

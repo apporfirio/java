@@ -26,6 +26,7 @@ public class DefaultProductRepository implements ProductRepository {
 
     public List<Product> findProductsContainingTitle(String title) {
         assertNotNull(title, "title");
+        // para não gerar equivalência com quando title = "null"
 
         TypedQuery<Product> query = em.createQuery(
                 "SELECT p FROM Product p WHERE p.title LIKE :titleParam",
@@ -36,25 +37,8 @@ public class DefaultProductRepository implements ProductRepository {
         return query.getResultList();
     }
 
-    public Product saveProduct(Product product) {
-        if (product.getId() == null) {
-            return createProduct(product);
-        }
-
-        return updateProduct(product);
-    }
-    private Product createProduct(Product product) {
+    public void createProduct(Product product) {
         em.persist(product);
-        return product;
+        // seta o id gerado em product
     }
-    private Product updateProduct(Product product) {
-        Product managedProduct = findProductById(product.getId());
-
-        managedProduct.setTitle(product.getTitle());
-        managedProduct.setDescription(product.getDescription());
-        managedProduct.setPrice(product.getPrice());
-
-        return managedProduct;
-    }
-
 }

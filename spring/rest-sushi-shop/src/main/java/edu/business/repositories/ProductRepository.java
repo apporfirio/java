@@ -10,6 +10,5 @@ public interface ProductRepository {
 
     List<Product> findProductsContainingTitle(String title);
 
-    Product saveProduct(Product product);
-
+    void createProduct(Product product);
 }

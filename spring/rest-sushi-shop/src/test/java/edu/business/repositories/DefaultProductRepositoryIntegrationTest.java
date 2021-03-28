@@ -25,7 +25,7 @@ public class DefaultProductRepositoryIntegrationTest {
     private ProductRepository productRepository;
 
     @Test
-    public void shouldNotSaveProductGivenNullTitle() {
+    public void shouldNoteCreateProductGivenNullTitle() {
         try {
             Product product = new Product(
                     null,
@@ -33,7 +33,7 @@ public class DefaultProductRepositoryIntegrationTest {
                     "Null title product cannot be saved",
                     9999.999f
             );
-            productRepository.saveProduct(product);
+            productRepository.createProduct(product);
         }
         catch (DataIntegrityViolationException e) {
             assertTrue(e.getCause() instanceof PropertyValueException);
@@ -41,7 +41,7 @@ public class DefaultProductRepositoryIntegrationTest {
     }
 
     @Test
-    public void shouldNotSaveProductGivenNullDescription() {
+    public void shouldNoteCreateProductGivenNullDescription() {
         try {
             Product product = new Product(
                     null,
@@ -49,7 +49,7 @@ public class DefaultProductRepositoryIntegrationTest {
                     null,
                     9999.999f
             );
-            productRepository.saveProduct(product);
+            productRepository.createProduct(product);
         }
         catch (DataIntegrityViolationException e) {
             assertTrue(e.getCause() instanceof PropertyValueException);
@@ -57,7 +57,7 @@ public class DefaultProductRepositoryIntegrationTest {
     }
 
     @Test
-    public void shouldNotSaveProductGivenNullPrice() {
+    public void shouldNoteCreateProductGivenNullPrice() {
         try {
             Product product = new Product(
                     null,
@@ -65,7 +65,7 @@ public class DefaultProductRepositoryIntegrationTest {
                     "Null price product cannot be saved",
                     null
             );
-            productRepository.saveProduct(product);
+            productRepository.createProduct(product);
         }
         catch (DataIntegrityViolationException e) {
             assertTrue(e.getCause() instanceof PropertyValueException);
@@ -73,7 +73,7 @@ public class DefaultProductRepositoryIntegrationTest {
     }
 
     @Test
-    public void shouldNotSaveProductGivenNonUniqueTitle() {
+    public void shouldNoteCreateProductGivenNonUniqueTitle() {
         try {
             Product product = new Product(
                     null,
@@ -87,8 +87,8 @@ public class DefaultProductRepositoryIntegrationTest {
                     "Product description new",
                     18.00f
             );
-            productRepository.saveProduct(product);
-            productRepository.saveProduct(productSameTitle);
+            productRepository.createProduct(product);
+            productRepository.createProduct(productSameTitle);
         }
         catch (DataIntegrityViolationException e) {
             assertTrue(e.getCause() instanceof ConstraintViolationException);
