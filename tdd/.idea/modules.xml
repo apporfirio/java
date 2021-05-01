@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/tdd.iml" filepath="$PROJECT_DIR$/.idea/tdd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tdd-basic-string-calculator/tdd-basic-string-calculator.iml" filepath="$PROJECT_DIR$/tdd-basic-string-calculator/tdd-basic-string-calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tdd-dmy-date/tdd-dmy-date.iml" filepath="$PROJECT_DIR$/tdd-dmy-date/tdd-dmy-date.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tdd-greeter/tdd-greeter.iml" filepath="$PROJECT_DIR$/tdd-greeter/tdd-greeter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tdd-leap-year-validator/tdd-leap-year-validator.iml" filepath="$PROJECT_DIR$/tdd-leap-year-validator/tdd-leap-year-validator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tdd-multiple-currency/tdd-multiple-currency.iml" filepath="$PROJECT_DIR$/tdd-multiple-currency/tdd-multiple-currency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tdd-static-array-list/tdd-static-array-list.iml" filepath="$PROJECT_DIR$/tdd-static-array-list/tdd-static-array-list.iml" />
+    </modules>
+  </component>
+</project>

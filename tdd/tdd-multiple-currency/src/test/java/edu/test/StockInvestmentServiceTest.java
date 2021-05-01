@@ -13,7 +13,7 @@ import org.junit.Test;
 import edu.StockInvestimentService;
 import edu.StockInvestiment;
 
-public class StockInvestimentServiceTest {
+public class StockInvestmentServiceTest {
 	/*
 	 	Tarefa
 	 	
